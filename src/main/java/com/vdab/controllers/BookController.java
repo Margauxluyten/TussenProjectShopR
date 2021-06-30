@@ -17,11 +17,18 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping(value = "/book")
-    public String showGamesPage(Model model) {
+    public String showBookPage(Model model) {
 //        model.addAttribute("allBooks" , bookService.getBooks());
         model.addAttribute("allNonFictionBooks", bookService.getNonFictionBooks());
         model.addAttribute("allFictionBooks", bookService.getFictionBooks());
         return "books";
+    }
+
+    @GetMapping(value = "/booksclient")
+    public String showBookClientPage(Model model) {
+        model.addAttribute("allNonFictionBooks", bookService.getNonFictionBooks());
+        model.addAttribute("allFictionBooks", bookService.getFictionBooks());
+        return "booksclient";
     }
 
     @GetMapping(value = "/addFictionBook")

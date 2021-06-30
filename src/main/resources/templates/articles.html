@@ -22,7 +22,7 @@
             <th data-field="type" data-filter-control="input">Type</th>
             <th data-field="title" data-filter-control="input">Title</th>
             <th data-field="price" data-filter-control="input">Price</th>
-            <th scope="col">Add to Shopping Cart</th>
+<!--            <th scope="col">Add to Shopping Cart</th>-->
         </tr>
         </thead>
         <tbody>
@@ -34,9 +34,9 @@
             </td>
             <td th:text="${book.getTitle}"></td>
             <td th:text="${book.getPrice}"></td>
-            <td>
-                <a th:href="@{addShoppingCart/{id}(id=${book.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
-            </td>
+<!--            <td>-->
+<!--                <a th:href="@{addShoppingCart/{id}(id=${book.getId()})}"><span class="material-icons">add_shopping_cart</span></a>-->
+<!--            </td>-->
         </tr>
         <tr th:each="game : ${allGames}">
             <td th:text="${game.getId}"></td>
@@ -45,9 +45,9 @@
             </td>
             <td th:text="${game.getTitle}"></td>
             <td th:text="${game.getPrice}"></td>
-            <td>
-                <a th:href="@{addShoppingCart/{id}(id=${game.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
-            </td>
+<!--            <td>-->
+<!--                <a th:href="@{addShoppingCart/{id}(id=${game.getId()})}"><span class="material-icons">add_shopping_cart</span></a>-->
+<!--            </td>-->
         </tr>
         <tr th:each="lp : ${allLps}">
             <td th:text="${lp.getId}"></td>
@@ -57,9 +57,9 @@
 <!--            <td th:if="${Lp instanceof T(com.vdab.domain.Lp)}" th:text="Lp"></td>-->
             <td th:text="${lp.getTitle}"></td>
             <td th:text="${lp.getPrice}"></td>
-            <td>
-                <a th:href="@{addShoppingCart/{id}(id=${lp.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
-            </td>
+<!--            <td>-->
+<!--                <a th:href="@{addShoppingCart/{id}(id=${lp.getId()})}"><span class="material-icons">add_shopping_cart</span></a>-->
+<!--            </td>-->
         </tr>
         </tbody>
     </table>

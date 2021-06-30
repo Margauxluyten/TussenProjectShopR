@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head :: head">
+
+</head>
+
+<body>
+
+<br>
+<div class="logincontainer">
+    <form method="post" th:action="@{/login}" th:object="${user}" >
+        <div class="row">
+
+            <label for="user">What Kind of user are you:</label>
+            <select class="form-control" id="user" th:field="*{user}" >
+                <option >Users</option>
+                <option th:each="user : ${user}" th:text="${user.getUserName}"
+                        th:value="${user.getId}"> option
+                </option>
+            </select>
+
+            <div class="row" style="margin-top: 2%">
+                <div class="col-md-4 offset-md-4">
+                    <button id="submitbnt" type="submit" class="form-control btn btn-primary">Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+
+<!--<div class="login-box">-->
+<!--    <h2>Login</h2>-->
+<!--    <form>-->
+<!--        <div class="user-box">-->
+<!--            <input type="text" name="" required="">-->
+<!--            <label>Username</label>-->
+<!--        </div>-->
+<!--        <div class="user-box">-->
+<!--            <input type="password" name="" required="">-->
+<!--            <label>Password</label>-->
+<!--        </div>-->
+<!--        <a href="#">-->
+<!--            <span></span>-->
+<!--            <span></span>-->
+<!--            <span></span>-->
+<!--            <span></span>-->
+<!--            Submit-->
+<!--        </a>-->
+<!--    </form>-->
+<!--</div>-->
+
+</body>
+</html>
