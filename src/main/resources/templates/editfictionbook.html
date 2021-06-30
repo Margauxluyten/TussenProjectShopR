@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="description">
+
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="bookcontainer">
+        <form method="post" th:action="@{/editedFictionBook/{id}(id=${editFictionBook.id})}" th:object="${editFictionBook}">
+          <div class="row">
+
+            <label for="title" class="form-label">Title</label>
+            <input th:value="${editFictionBook.getTitle()}" class="form-control" id="title" placeholder="Title" name="title" required>
+
+            <label for="price" class="form-label">Price</label>
+            <input th:value="${editFictionBook.getPrice()}" id="price" class="form-control" placeholder="Price" name="price" required>
+
+            <label for="author" class="form-label">Author</label>
+            <input th:value="${editFictionBook.getAuthor()}" class="form-control" id="author"
+                   placeholder="Author" name="author" required>
+
+            <label for="isbn" class="form-label">A 13-digit ISBN, 123-12-123-1234-1</label>
+            <input th:value="${editFictionBook.getIsbn()}" class="form-control" id="isbn"
+                   placeholder="Isbn" name="isbn" required>
+
+            <label for="bookGenre" >Select Book Genre</label>
+            <select name="bookGenre"  class="form-control" id="bookGenre" >
+              <option th:each="genre : ${bookGenre}" th:text="${genre}"
+                      th:value="${genre}">
+              </option>
+            </select>
+
+            <label for="description" class="form-label">Description </label>
+            <input th:value="${editFictionBook.getDescription()}" class="form-control" id="description"
+                   placeholder="description" name="description" required>
+
+            <label for="pages" class="form-label">Pages</label>
+            <input th:value="${editFictionBook.getPages()}" class="form-control" id="pages"
+                   placeholder="Pages" name="pages" required>
+
+            <label for="supplierId" class="form-label">Supplier Id Number </label>
+            <input th:value="${editFictionBook.getSupplierId()}" class="form-control" id="supplierId"
+                   placeholder="Supplier" name="supplierId" required>
+
+            <div class="row" style="margin-top: 2%">
+              <div class="col-md-4 offset-md-4">
+                <button id="submitbnt" type="submit" class="form-control btn btn-primary">Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

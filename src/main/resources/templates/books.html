@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+
+<br>
+<br>
+<br>
+
+<div class="btn-group">
+<!--    <a href="#" class="btn btn-primary active" aria-current="page">Active link</a>-->
+    <a th:href="@{addFictionBook}" class="btn btn-primary">Add Fiction Book</a>
+    <a th:href="@{addNonFictionBook}" class="btn btn-primary">Add Non-Fiction Book</a>
+</div>
+
+<!--<div class="toolbar">-->
+<!--    <button class="btn btn-primary" id="order1">Order by Title, Id, price</button>-->
+<!--    <button class="btn btn-primary" id="order2">Order by Price, Title, Id</button>-->
+<!--</div>-->
+
+<br>
+<br>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+    <table class="table" id="table" data-toolbar=".toolbar"
+           data-show-columns="true"
+           data-search="true"
+           data-show-toggle="true"
+           data-pagination="true"
+           data-reorderable-columns="true" >
+        <thead>
+        <tr>
+            <th data-field="id" data-sortable="true">Id</th>
+            <th scope="col">Type</th>
+            <th data-field="title" data-sortable="true">Title</th>
+            <th data-field="price" data-sortable="true">Price</th>
+            <th data-field="author" data-sortable="true">Author</th>
+            <th data-field="isbn" data-sortable="true">Isbn</th>
+            <th data-field="pages" data-sortable="true">Pages</th>
+            <th scope="col">Genre/Subject</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+<!--            <th scope="col"><a th:href="@{addFictionBook}">Add Fiction Book </a></th>-->
+<!--            <th scope="col"><a th:href="@{addNonFictionBook}">Add Non-Fiction Book </a></th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${allNonFictionBooks}">
+            <td th:text="${book.getId()}"></td>
+            <td th:text="${book.getType()}"></td>
+            <td th:text="${book.getTitle()}"></td>
+            <td th:text="${book.getPrice()}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getIsbn()}"></td>
+            <td th:text="${book.getPages()}"></td>
+            <td th:text="${book.getBookSubject()}"></td>
+            <td></td>
+            <td>
+                <a th:href="@{editNonFictionBook/{id}(id=${book.getId()})}"><span class="material-icons">edit</span></a>
+            </td>
+            <td>
+                <a th:href="@{deleteNonFictionBook/{id}(id=${book.getId()})}"><span class="material-icons">delete</span></a>
+            </td>
+<!--            <td>-->
+<!--                <a th:href="@{addNonFictionBook}"><span class="material-icons">add</span></a>-->
+<!--            </td>-->
+        </tr>
+        <tr th:each="book : ${allFictionBooks}">
+            <td th:text="${book.getId()}"></td>
+            <td th:text="${book.getType()}"></td>
+            <td th:text="${book.getTitle()}"></td>
+            <td th:text="${book.getPrice()}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getIsbn()}"></td>
+            <td th:text="${book.getPages()}"></td>
+            <td th:text="${book.getBookGenre()}"></td>
+            <td th:text="${book.getDescription()}"></td>
+            <td>
+                <a th:href="@{editFictionBook/{id}(id=${book.getId()})}"><span class="material-icons">edit</span></a>
+            </td>
+            <td>
+                <a th:href="@{deleteFictionBook/{id}(id=${book.getId()})}"><span class="material-icons">delete</span></a>
+            </td>
+<!--            <td>-->
+<!--                <a th:href="@{addFictionBook}"><span class="material-icons">add</span></a>-->
+<!--            </td>-->
+        </tbody>
+    </table>
+
+</div>
+</body>
+
+<script>
+    $(function() {
+        $('#table').bootstrapTable()
+
+        $('#order1').on('click', () => {
+            $('#table').bootstrapTable('orderColumns', {
+                title: 0,
+                id: 1,
+                price: 2
+            })
+        })
+
+        $('#order2').on('click', () => {
+            $('#table').bootstrapTable('orderColumns', {
+                price: 0,
+                title: 1,
+                id: 2
+            })
+        })
+    })
+</script>
+
+</html>

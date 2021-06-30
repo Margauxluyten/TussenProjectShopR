@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+<br>
+<br>
+<br>
+
+<div class="btn-group">
+    <a th:href="@{addLp}" class="btn btn-primary">Add An Lp</a>
+</div>
+
+<!--<div class="toolbar">-->
+<!--    <button class="btn btn-primary" id="order1">Order by Title, Id, price</button>-->
+<!--    <button class="btn btn-primary" id="order2">Order by Price, Tile, Id</button>-->
+<!--</div>-->
+<br>
+<br>
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+    <table class="table" id="table" data-toolbar=".toolbar"
+           data-show-columns="true"
+           data-search="true"
+           data-show-toggle="true"
+           data-pagination="true"
+           data-reorderable-columns="true" >
+        <thead>
+        <tr>
+            <th data-field="id" data-sortable="true">Id</th>
+            <th scope="col">Type</th>
+            <th data-field="title" data-sortable="true">Title</th>
+            <th data-field="price" data-sortable="true">Price</th>
+            <th data-field="artist" data-sortable="true">Artist</th>
+            <th data-field="genre" data-sortable="true">Genre</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+<!--            <th scope="col"><a th:href="@{addLp}"><span class="material-icons">add</span></a></th>-->
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr th:each="lp : ${allLps}">
+            <td th:text="${lp.getId()}"></td>
+            <td th:text="Lp"></td>
+            <td th:text="${lp.getTitle()}"></td>
+            <td th:text="${lp.getPrice()}"></td>
+            <td th:text="${lp.getArtist()}"></td>
+            <td th:text="${lp.getLpGenre()}"></td>
+            <td>
+                <a th:href="@{editLp/{id}(id=${lp.getId()})}"><span class="material-icons">edit</span></a>
+            </td>
+            <td>
+                <a th:href="@{deleteLp/{id}(id=${lp.getId()})}"><span class="material-icons">delete</span></a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+
+<script>
+    $(function() {
+        $('#table').bootstrapTable()
+
+        $('#order1').on('click', () => {
+            $('#table').bootstrapTable('orderColumns', {
+                title: 0,
+                id: 1,
+                price: 2
+            })
+        })
+
+        $('#order2').on('click', () => {
+            $('#table').bootstrapTable('orderColumns', {
+                price: 0,
+                title: 1,
+                id: 2
+            })
+        })
+    })
+</script>
+
+</html>

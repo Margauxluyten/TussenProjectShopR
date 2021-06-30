@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="description">
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="gamecontainer">
+                <form method="post" th:action="@{/editedGame/{id}(id=${editGame.id})}" th:object="${editGame}">
+                    <div class="row">
+
+
+                        <label for="title" class="form-label">Title</label>
+                        <input th:value="${editGame.getTitle()}" class="form-control" id="title" placeholder="Title" name="title" required>
+
+                        <label for="price" class="form-label">Price</label>
+                        <input th:value="${editGame.getPrice()}" id="price" class="form-control" placeholder="Price" name="price" required>
+
+                        <label for="minimumAge" class="form-label">Minimum Age</label>
+                        <input th:value="${editGame.getMinimumAge()}" class="form-control" id="minimumAge"
+                               placeholder="MinimumAge" name="minimumAge" required>
+
+                        <label for="publisher" class="form-label">Publisher</label>
+                        <input th:value="${editGame.getPublisher()}" class="form-control" id="publisher"
+                               placeholder="Publisher" name="publisher" required>
+
+                        <label for="gameGenre" >Select Game Genre</label>
+                        <select name="gameGenre"  class="form-control" id="gameGenre" th:field="*{gameGenre}">
+                            <option th:each="genre : ${gameGenre}" th:text="${genre}"
+                                    th:value="${genre}">
+                            </option>
+                        </select>
+
+                        <label for="supplierId" class="form-label">Supplier Id Number </label>
+                        <input th:value="${editGame.getSupplierId()}" class="form-control" id="supplierId"
+                               placeholder="Supplier" name="supplierId" required>
+
+                        <div class="row" style="margin-top: 2%">
+                            <div class="col-md-4 offset-md-4">
+                                <button id="submitbnt" type="submit" class="form-control btn btn-primary">Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+<br>
+<br>
+<!--<div class="shopping">-->
+<!--    <a th:href="@{/shoppingcart}"><span class="material-icons">shopping_cart</span></a>-->
+<!--</div>-->
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+ <div class="table-article">
+    <table class="table"  id="table"
+           data-filter-control="true"
+           data-show-search-clear-button="true">
+        <thead>
+        <tr>
+            <th data-field="id" data-filter-control="input" >Id</th>
+            <th data-field="type" data-filter-control="input">Type</th>
+            <th data-field="title" data-filter-control="input">Title</th>
+            <th data-field="price" data-filter-control="input">Price</th>
+            <th scope="col">Add to Shopping Cart</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${allBooks}">
+            <td th:text="${book.getId}"></td>
+            <td>
+                <a  th:text="${book.getType}" th:href="@{/book}"></a>
+
+            </td>
+            <td th:text="${book.getTitle}"></td>
+            <td th:text="${book.getPrice}"></td>
+            <td>
+                <a th:href="@{addShoppingCart/{id}(id=${book.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
+            </td>
+        </tr>
+        <tr th:each="game : ${allGames}">
+            <td th:text="${game.getId}"></td>
+            <td>
+                <a th:text="Game" th:href="@{/games}"></a>
+            </td>
+            <td th:text="${game.getTitle}"></td>
+            <td th:text="${game.getPrice}"></td>
+            <td>
+                <a th:href="@{addShoppingCart/{id}(id=${game.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
+            </td>
+        </tr>
+        <tr th:each="lp : ${allLps}">
+            <td th:text="${lp.getId}"></td>
+            <td>
+               <a th:text="Lp" th:href="@{/lp}"></a>
+            </td>
+<!--            <td th:if="${Lp instanceof T(com.vdab.domain.Lp)}" th:text="Lp"></td>-->
+            <td th:text="${lp.getTitle}"></td>
+            <td th:text="${lp.getPrice}"></td>
+            <td>
+                <a th:href="@{addShoppingCart/{id}(id=${lp.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+ </div>
+</div>
+
+
+</body>
+
+<script>
+    $(function() {
+        $('#table').bootstrapTable()
+    })
+</script>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+<br>
+<br>
+<br>
+
+<div class="btn-group">
+    <a th:href="@{addGame}" class="btn btn-primary">Add A Game</a>
+</div>
+
+<!--<div class="toolbar">-->
+<!--    <button class="btn btn-primary" id="order1">Order by Title, Id, price</button>-->
+<!--    <button class="btn btn-primary" id="order2">Order by Price, Title, Id</button>-->
+<!--</div>-->
+<br>
+<br>
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+    <table class="table" id="table" data-toolbar=".toolbar"
+           data-show-columns="true"
+           data-search="true"
+           data-show-toggle="true"
+           data-pagination="true"
+           data-reorderable-columns="true" >
+        <thead>
+
+        <tr>
+            <th data-field="id" data-sortable="true">Id</th>
+            <th scope="col">Type</th>
+            <th data-field="title" data-sortable="true">Title</th>
+            <th data-field="price" data-sortable="true">Price</th>
+            <th data-field="publisher" data-sortable="true">Publisher</th>
+            <th data-field="minimumAge" data-sortable="true">Minimum Age</th>
+            <th data-field="genre" data-sortable="true">Genre</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+<!--            <th scope="col"><a th:href="@{addGame}"><span class="material-icons">add</span></a></th>-->
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="game : ${allGames}">
+            <td th:text="${game.getId()}"></td>
+            <td th:text="Game"></td>
+            <td th:text="${game.getTitle()}"></td>
+            <td th:text="${game.getPrice()}"></td>
+            <td th:text="${game.getPublisher()}"></td>
+            <td th:text="${game.getMinimumAge()}"></td>
+            <td th:text="${game.getGameGenre()}"></td>
+            <td>
+                <a th:href="@{editGame/{id}(id=${game.getId()})}"><span class="material-icons">edit</span></a>
+            </td>
+            <td>
+                <a th:href="@{deleteGame/{id}(id=${game.getId()})}"><span class="material-icons">delete</span></a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+
+<script>
+    $(function() {
+        $('#table').bootstrapTable()
+
+        $('#order1').on('click', () => {
+            $('#table').bootstrapTable('orderColumns', {
+                title: 0,
+                id: 1,
+                price: 2
+            })
+        })
+
+        $('#order2').on('click', () => {
+            $('#table').bootstrapTable('orderColumns', {
+                price: 0,
+                title: 1,
+                id: 2
+            })
+        })
+    })
+</script>
+
+</html>

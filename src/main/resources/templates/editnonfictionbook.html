@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="description">
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="bookcontainer">
+                <form method="post" th:action="@{/editedNonFictionBook/{id}(id=${editNonFictionBook.id})}" th:object="${editNonFictionBook}">
+                    <div class="row">
+
+                        <label for="title" class="form-label">Title</label>
+                        <input th:value="${editNonFictionBook.getTitle()}" class="form-control" id="title" placeholder="Title" name="title" required>
+
+                        <label for="price" class="form-label">Price</label>
+                        <input th:value="${editNonFictionBook.getPrice()}" id="price" class="form-control" placeholder="Price" name="price" required>
+
+                        <label for="author" class="form-label">Author</label>
+                        <input th:value="${editNonFictionBook.getAuthor()}" class="form-control" id="author"
+                               placeholder="Author" name="author" required>
+
+                        <label for="isbn" class="form-label">A 13-digit ISBN, 123-12-123-1234-1</label>
+                        <input th:value="${editNonFictionBook.getIsbn()}" class="form-control" id="isbn"
+                               placeholder="Isbn" name="isbn" required>
+
+                        <label for="bookSubject" >Select Book Subject</label>
+                        <select name="bookSubject"  class="form-control" id="bookSubject" th:field="*{bookSubject}">
+                            <option th:each="subject : ${bookSubject}" th:text="${subject}"
+                                    th:value="${subject}">
+                            </option>
+                        </select>
+
+                        <label for="pages" class="form-label">Pages</label>
+                        <input th:value="${editNonFictionBook.getPages()}" class="form-control" id="pages"
+                               placeholder="Pages" name="pages" required>
+
+                        <label for="supplierId" class="form-label">Supplier Id Number </label>
+                        <input th:value="${editNonFictionBook.getSupplierId()}" class="form-control" id="supplierId"
+                               placeholder="Supplier" name="supplierId" required>
+
+                        <div class="row" style="margin-top: 2%">
+                            <div class="col-md-4 offset-md-4">
+                                <button id="submitbnt" type="submit" class="form-control btn btn-primary">Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
