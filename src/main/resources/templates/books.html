@@ -54,7 +54,7 @@
             <td th:text="${book.getId()}"></td>
             <td th:text="${book.getType()}"></td>
             <td th:text="${book.getTitle()}"></td>
-            <td th:text="${book.getPrice()}"></td>
+            <td th:text="${#numbers.formatCurrency(book.getPrice())}"></td>
             <td th:text="${book.getAuthor()}"></td>
             <td th:text="${book.getIsbn()}"></td>
             <td th:text="${book.getPages()}"></td>
@@ -74,7 +74,7 @@
             <td th:text="${book.getId()}"></td>
             <td th:text="${book.getType()}"></td>
             <td th:text="${book.getTitle()}"></td>
-            <td th:text="${book.getPrice()}"></td>
+            <td th:text="${#numbers.formatCurrency(book.getPrice())}"></td>
             <td th:text="${book.getAuthor()}"></td>
             <td th:text="${book.getIsbn()}"></td>
             <td th:text="${book.getPages()}"></td>

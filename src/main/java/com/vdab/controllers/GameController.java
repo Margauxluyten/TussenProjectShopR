@@ -22,6 +22,11 @@ public class GameController {
         model.addAttribute("allGames",gameService.getGames());
         return "games";
     }
+    @GetMapping(value = "/gamesclient")
+    public String showGamesClientPage(Model model){
+        model.addAttribute("allGames",gameService.getGames());
+        return "gamesclient";
+    }
 
     @GetMapping(value = "/addGame")
     public String showAddGamePage(Model model){

@@ -25,6 +25,12 @@ public class LpController {
         return "lps";
     }
 
+    @GetMapping(value = "/lpclient")
+    public String showLpClientPage(Model model){
+        model.addAttribute("allLps",lpService.getLps());
+        return "lpclient";
+    }
+
     @GetMapping(value = "/addLp")
     public String showAddLpPage(Model model){
         model.addAttribute("newLp", new Lp());

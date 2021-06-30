@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: navclient"></div>
+
+<br>
+<br>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Type</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Genre</th>
+
+    </thead>
+    <tbody>
+    <tr>
+    <tr th:each="lp : ${allLps}">
+      <td th:text="${lp.getId()}"></td>
+      <td th:text="Lp"></td>
+      <td th:text="${lp.getTitle()}"></td>
+      <td th:text="${#numbers.formatCurrency(lp.getPrice())}"></td>
+      <td th:text="${lp.getArtist()}"></td>
+      <td th:text="${lp.getLpGenre()}"></td>
+      <td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+
+</body>
+</html>

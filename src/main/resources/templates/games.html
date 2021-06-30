@@ -48,7 +48,7 @@
             <td th:text="${game.getId()}"></td>
             <td th:text="Game"></td>
             <td th:text="${game.getTitle()}"></td>
-            <td th:text="${game.getPrice()}"></td>
+            <td th:text="${#numbers.formatCurrency(game.getPrice())}"></td>
             <td th:text="${game.getPublisher()}"></td>
             <td th:text="${game.getMinimumAge()}"></td>
             <td th:text="${game.getGameGenre()}"></td>

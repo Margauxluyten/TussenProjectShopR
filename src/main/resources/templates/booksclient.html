@@ -8,6 +8,49 @@
 <br>
 <br>
 
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
 
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Type</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Author</th>
+            <th scope="col">Isbn</th>
+            <th scope="col">Pages</th>
+            <th scope="col">Genre/Subject</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${allNonFictionBooks}">
+            <td th:text="${book.getId()}"></td>
+            <td th:text="${book.getType()}"></td>
+            <td th:text="${book.getTitle()}"></td>
+            <td th:text="${#numbers.formatCurrency(book.getPrice())}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getIsbn()}"></td>
+            <td th:text="${book.getPages()}"></td>
+            <td th:text="${book.getBookSubject()}"></td>
+            <td></td>
+
+        </tr>
+        <tr th:each="book : ${allFictionBooks}">
+            <td th:text="${book.getId()}"></td>
+            <td th:text="${book.getType()}"></td>
+            <td th:text="${book.getTitle()}"></td>
+            <td th:text="${#numbers.formatCurrency(book.getPrice())}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getIsbn()}"></td>
+            <td th:text="${book.getPages()}"></td>
+            <td th:text="${book.getBookGenre()}"></td>
+            <td th:text="${book.getDescription()}"></td>
+
+        </tbody>
+    </table>
+
+</div>
 </body>
 </html>

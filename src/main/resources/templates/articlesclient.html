@@ -24,11 +24,11 @@
       <tr th:each="book : ${allBooks}">
         <td th:text="${book.getId}"></td>
         <td>
-          <a  th:text="${book.getType}" th:href="@{/book}"></a>
+          <a  th:text="${book.getType}" th:href="@{/booksclient}"></a>
 
         </td>
         <td th:text="${book.getTitle}"></td>
-        <td th:text="${book.getPrice}"></td>
+        <td th:text="${#numbers.formatCurrency(book.getPrice)}"></td>
         <td>
           <a th:href="@{addShoppingCart/{id}(id=${book.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
         </td>
@@ -36,10 +36,10 @@
       <tr th:each="game : ${allGames}">
         <td th:text="${game.getId}"></td>
         <td>
-          <a th:text="Game" th:href="@{/games}"></a>
+          <a th:text="Game" th:href="@{/gamesclient}"></a>
         </td>
         <td th:text="${game.getTitle}"></td>
-        <td th:text="${game.getPrice}"></td>
+        <td th:text="${#numbers.formatCurrency(game.getPrice)}"></td>
         <td>
           <a th:href="@{addShoppingCart/{id}(id=${game.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
         </td>
@@ -47,11 +47,11 @@
       <tr th:each="lp : ${allLps}">
         <td th:text="${lp.getId}"></td>
         <td>
-          <a th:text="Lp" th:href="@{/lp}"></a>
+          <a th:text="Lp" th:href="@{/lpclient}"></a>
         </td>
         <!--            <td th:if="${Lp instanceof T(com.vdab.domain.Lp)}" th:text="Lp"></td>-->
         <td th:text="${lp.getTitle}"></td>
-        <td th:text="${lp.getPrice}"></td>
+        <td th:text="${#numbers.formatCurrency(lp.getPrice)}"></td>
         <td>
           <a th:href="@{addShoppingCart/{id}(id=${lp.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
         </td>

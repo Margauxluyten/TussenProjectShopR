@@ -10,7 +10,7 @@
 <br>
 
 <div class="btn-group">
-    <a th:href="@{addLp}" class="btn btn-primary">Add An Lp</a>
+    <a th:href="@{addLp}" class="btn btn-primary">Add A Lp</a>
 </div>
 
 <!--<div class="toolbar">-->
@@ -47,7 +47,7 @@
             <td th:text="${lp.getId()}"></td>
             <td th:text="Lp"></td>
             <td th:text="${lp.getTitle()}"></td>
-            <td th:text="${lp.getPrice()}"></td>
+            <td th:text="${#numbers.formatCurrency(lp.getPrice())}"></td>
             <td th:text="${lp.getArtist()}"></td>
             <td th:text="${lp.getLpGenre()}"></td>
             <td>

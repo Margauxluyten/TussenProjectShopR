@@ -22,6 +22,6 @@ public class ContactController {
     @PostMapping(value = "/contact/send")
     public String sendContactEmail(@ModelAttribute Contact contact){
         contactService.sendEmail(contact);
-        return "redirect:/";
+        return "redirect:/articlesclient";
     }
 }

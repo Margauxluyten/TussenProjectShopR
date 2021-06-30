@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: navclient"></div>
+
+<br>
+<br>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+    <table class="table" >
+        <thead>
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Type</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Minimum Age</th>
+            <th scope="col">Genre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="game : ${allGames}">
+            <td th:text="${game.getId()}"></td>
+            <td th:text="Game"></td>
+            <td th:text="${game.getTitle()}"></td>
+            <td th:text="${#numbers.formatCurrency(game.getPrice())}"></td>
+            <td th:text="${game.getPublisher()}"></td>
+            <td th:text="${game.getMinimumAge()}"></td>
+            <td th:text="${game.getGameGenre()}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
