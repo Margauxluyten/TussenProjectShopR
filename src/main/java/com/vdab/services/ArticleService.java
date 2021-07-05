@@ -13,6 +13,10 @@ public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
 
+    public List<Article> getAllArticles() {
+        return articleRepository.getAllArticles();
+    }
+
 //    public List<Article>  getAllArticles() {
 //        return articleRepository.getAllArticles();
 //    }

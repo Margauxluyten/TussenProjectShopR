@@ -1,16 +1,16 @@
 .nav-item{
-    font-size: xx-large;
+    font-size: large;
     border-color: #0d6efd!important;
 }
 .nav-link{
     color: black!important;
-    background-color: #03e9f4;
-    border-color: #0d6efd!important;
+    /*background-color: #03e9f4;*/
+    /*border-color: #0d6efd!important;*/
 }
 
 #submitbnt{
-    size: 50px!important;
-    background-color: #03e9f4!important;
+    text-align: center;
+    /*background-color: #03e9f4!important;*/
 }
 
 .my-custom-scrollbar {
@@ -34,11 +34,55 @@
     padding-left: 150px;
 }
 
+#log{
+   padding-left: 110px;
+}
+#new-customer{
+    text-align: center;
+}
+#submitbnt-customer{
+
+    text-align: center!important;
+
+}
+.error{
+    text-align: center;
+}
+p{
+    text-align: center;
+    font-size: large;
+    font-family: Bahnschrift ;
+}
+
 .gamecontainer{
     width: 250px;
     height: 400px;
     position: center;
     margin: 0 auto;
+}
+.ordercontainer{
+    width: 250px;
+    height: 400px;
+    position: center;
+    margin: 0 auto;
+}
+.user-container{
+    width: 250px;
+    height: 400px;
+    position: center;
+    margin: 0 auto;
+}
+.table{
+    text-align: center;
+}
+
+
+.logincontainer{
+    width: 250px;
+    height: 400px;
+    position: center;
+    margin: 0 auto;
+    padding-top: 250px;
 }
 
 .lpcontainer{
@@ -53,6 +97,17 @@
     position: center;
     margin: 0 auto;
 }
+
+.footer{
+    text-align: center;
+    color: darkgray;
+    font-size: small;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 100px;
+}
+
 .table-article{
     width: 800px;
     margin: 0 auto;
@@ -63,14 +118,25 @@
     height: 10px;
 }
 .shopping{
-
     margin: 0 auto!important;
     /*padding-left: 500px;*/
 }
+#logo{
+    width: auto;
+    height: auto;
+    text-align: center;
+ }
 
+#logo img {
+    display: inline-block;
+}
 
-
-
+#myDiv{
+    text-align: center;
+}
+.buy-button{
+    text-align: center;
+}
 
 
 
@@ -112,16 +178,16 @@ body {
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: #243b55;
+    background: antiquewhite;
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(62, 8, 69, 0.6);
+    border-radius: 5px;
 }
 
 .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
-    color: #fff;
+    color: black;
     text-align: center;
 }
 
@@ -155,7 +221,7 @@ body {
 .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #03e9f4;
+    color: #320445;
     font-size: 12px;
 }
 
@@ -163,7 +229,7 @@ body {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color: #3e0752;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -174,13 +240,13 @@ body {
 }
 
 .login-box a:hover {
-    background: #03e9f4;
+    background: orange;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-    0 0 25px #03e9f4,
-    0 0 50px #03e9f4,
-    0 0 100px #03e9f4;
+    box-shadow: 0 0 5px orange,
+    0 0 10px orange,
+    0 0 25px orange,
+    0 0 50px orange;
 }
 
 .login-box a span {
@@ -193,7 +259,7 @@ body {
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
+    /*background: linear-gradient(90deg, transparent, orangered);*/
     animation: btn-anim1 1s linear infinite;
 }
 
@@ -211,7 +277,7 @@ body {
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    /*background: linear-gradient(180deg, transparent, orangered);*/
     animation: btn-anim2 1s linear infinite;
     animation-delay: 1s
 }
@@ -230,7 +296,7 @@ body {
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    /*background: linear-gradient(270deg, transparent, orangered);*/
     animation: btn-anim3 3s linear infinite;
     animation-delay: 1s
 }
@@ -249,7 +315,7 @@ body {
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    /*background: linear-gradient(360deg, transparent, orangered);*/
     animation: btn-anim4 3s linear infinite;
     animation-delay: 2s
 }
@@ -262,5 +328,9 @@ body {
         bottom: 100%;
     }
 }
+
+
+
+
 
 

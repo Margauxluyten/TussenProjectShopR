@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: nav"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="description">
+
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="ordercontainer">
+        <form method="post" th:action="@{/orderingArticleBook/{id}(id=${bookChoice.id})}" th:object="${newOrderArticleBook}">
+          <div class="row">
+
+            <label for="title" class="form-label">Title</label>
+            <input th:value="${bookChoice.getTitle()}" class="form-control" id="title" placeholder="Title" name="title" required>
+
+            <label for="price" class="form-label">Price</label>
+            <input th:value="${bookChoice.getPrice()}" id="price" class="form-control" placeholder="Price" name="price" required>
+
+            <div id="myDiv">
+              <div class="quantity-container">
+                <span>Quantity</span>
+                <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                <input type="number" id="quantity" name="quantity" value="1" />
+                <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+              </div>
+
+
+
+              <div class="row" style="margin-top: 2%">
+              <div class="col-md-4 offset-md-4">
+                <button id="submitbnt" type="submit" class="form-control btn btn-primary">Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:insert="fragments/head :: footer"></div>
+</body>
+
+<script>
+  function increaseValue() {
+    var value = parseInt(document.getElementById('quantity').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('quantity').value = value;
+    price = '$'+`<span>${p * value}</span>`;
+    document.getElementById('product-price').innerHTML=price;
+  }
+
+  function decreaseValue() {
+    var value = parseInt(document.getElementById('quantity').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('quantity').value = value;
+    price = '$'+`<span>${p * value}</span>`;
+    document.getElementById('product-price').innerHTML=price;
+  }
+</script>
+
+
+</html>

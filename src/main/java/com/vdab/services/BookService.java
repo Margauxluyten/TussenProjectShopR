@@ -62,4 +62,7 @@ public class BookService {
         bookRepository.deleteNonFictionBook(id);
     }
 
+    public Book findBooksById(long id) {
+        return bookRepository.findBooksById(id);
+    }
 }

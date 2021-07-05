@@ -27,12 +27,14 @@ public class GameRepository {
     }
 
     public Game findGameById(long id) {
+
         return entityManager.find(Game.class, id);
     }
     @Transactional
     public void updateGame(Game game) {
         entityManager.merge(game);
     }
+
     @Transactional
     public void deleteGame(long id) {
         Game game = findGameById(id);

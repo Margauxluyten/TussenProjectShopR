@@ -10,7 +10,7 @@
 
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
   <div class="table-article">
-    <table class="table">
+    <table class="table"   >
       <thead>
       <tr>
         <th scope="col">Id</th>
@@ -30,7 +30,7 @@
         <td th:text="${book.getTitle}"></td>
         <td th:text="${#numbers.formatCurrency(book.getPrice)}"></td>
         <td>
-          <a th:href="@{addShoppingCart/{id}(id=${book.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
+          <a  th:href="@{placingorderBook/{id}(id=${book.getId()})}"><span class="material-icons-outlined">shopping_bag</span></a>
         </td>
       </tr>
       <tr th:each="game : ${allGames}">
@@ -41,7 +41,7 @@
         <td th:text="${game.getTitle}"></td>
         <td th:text="${#numbers.formatCurrency(game.getPrice)}"></td>
         <td>
-          <a th:href="@{addShoppingCart/{id}(id=${game.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
+          <a th:href="@{placingorderGame/{id}(id=${game.getId()})}"><span class="material-icons-outlined">shopping_bag</span></a>
         </td>
       </tr>
       <tr th:each="lp : ${allLps}">
@@ -53,7 +53,7 @@
         <td th:text="${lp.getTitle}"></td>
         <td th:text="${#numbers.formatCurrency(lp.getPrice)}"></td>
         <td>
-          <a th:href="@{addShoppingCart/{id}(id=${lp.getId()})}"><span class="material-icons">add_shopping_cart</span></a>
+          <a th:href="@{placingorderLp/{id}(id=${lp.getId()})}"><span class="material-icons-outlined">shopping_bag</span></a>
         </td>
       </tr>
       </tbody>
@@ -61,6 +61,7 @@
   </div>
 </div>
 
+<div th:insert="fragments/head :: footer"></div>
 
 </body>
 

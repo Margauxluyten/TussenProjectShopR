@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<div th:insert="fragments/head :: navclient"></div>
+
+<br>
+<br>
+<br>
+
+<p>You have placed your order succesfully</p>
+<br>
+<p>Thank you for shopping with us </p>
+
+<br>
+<br>
+<br>
+
+<div class="buy-button">
+    <a th:href="@{articlesclient}" class="btn btn-primary">return</a>
+</div>
+
+</body>
+</html>

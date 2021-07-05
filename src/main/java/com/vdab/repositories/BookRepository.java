@@ -73,4 +73,8 @@ public class BookRepository {
         BookNonFiction bookNonFiction = findNonFictionBookById(id);
         entityManager.remove(bookNonFiction);
     }
+
+    public Book findBooksById(long id) {
+        return entityManager.find(Book.class,id);
+    }
 }

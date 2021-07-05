@@ -15,21 +15,52 @@
       <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">Type</th>
         <th scope="col">Title</th>
         <th scope="col">Amount</th>
         <th scope="col">Price</th>
         <th scope="col">Total Price</th>
+        <th scope="col">Change order</th>
 
       </tr>
       </thead>
       <tbody>
-
+      <tr th:each="newOrder : ${allOrderedArticles}">
+        <td th:text="${newOrder.getId()}"></td>
+        <td th:text="${newOrder.getTitle()}"></td>
+        <td th:text="${newOrder.getQuantity()}"></td>
+        <td th:text="${#numbers.formatCurrency(newOrder.getPrice())}"></td>
+        <td th:text="${#numbers.formatCurrency(newOrder.getTotalPrice())}"></td>
+        <td>
+          <a th:href="@{editShoppingItem/{id}(id=${newOrder.getId()})}"><span class="material-icons">edit</span></a>
+        </td>
+        <td>
+          <a th:href="@{deleteItem/{id}(id=${newOrder.getId()})}"><span class="material-icons">delete</span></a>
+        </td>
+      </tr>
+<!--      <tr th:each="newOrderArticleGame : ${allOrderedArticles}">-->
+<!--        <td th:text="${newOrderArticleGame.getId()}"></td>-->
+<!--        <td th:text="${newOrderArticleGame.getTitle()}"></td>-->
+<!--        <td th:text="${newOrderArticleGame.getQuantity()}"></td>-->
+<!--        <td th:text="${#numbers.formatCurrency(newOrderArticleGame.getPrice())}"></td>-->
+<!--        <td></td>-->
+<!--      </tr>-->
+<!--      <tr th:each="newOrderArticleBook : ${allOrderedArticles}">-->
+<!--        <td th:text="${newOrderArticleBook.getId()}"></td>-->
+<!--        <td th:text="${newOrderArticleBook.getTitle()}"></td>-->
+<!--        <td th:text="${newOrderArticleBook.getQuantity()}"></td>-->
+<!--        <td th:text="${#numbers.formatCurrency(newOrderArticleBook.getPrice())}"></td>-->
+<!--        <td></td>-->
+<!--      </tr>-->
       </tbody>
     </table>
   </div>
 </div>
 
+<div class="buy-button">
+  <a th:href="@{buyArticle}" class="btn btn-primary">Buy Article</a>
+</div>
+
+<div th:insert="fragments/head :: footer"></div>
 
 </body>
 

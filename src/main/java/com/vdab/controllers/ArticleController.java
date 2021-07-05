@@ -20,6 +20,8 @@ public class ArticleController {
 
     @Autowired
     private BookService bookService;
+    @Autowired
+    private ArticleService articleService;
 
 
     @GetMapping(value = "/articles")
@@ -32,6 +34,7 @@ public class ArticleController {
 
     @GetMapping(value = "/articlesclient")
     public String showArticlesClientPage(Model model){
+        model.addAttribute("allArticles",articleService.getAllArticles());
         model.addAttribute("allGames",gameService.getGames());
         model.addAttribute("allBooks",bookService.getBooks());
         model.addAttribute("allLps",lpService.getLps());

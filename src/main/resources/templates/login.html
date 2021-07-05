@@ -6,31 +6,38 @@
 
 <body>
 
-<br>
+<div th:insert="fragments/head :: navhome"></div>
+
 <div class="logincontainer">
-    <form method="post" th:action="@{/login}" th:object="${user}" >
+    <form method="post" th:action="@{/checklogin}" th:object="${newUser}" >
         <div class="row">
 
-            <label for="user">What Kind of user are you:</label>
-            <select class="form-control" id="user" th:field="*{user}" >
-                <option >Users</option>
-                <option th:each="user : ${user}" th:text="${user.getUserName}"
-                        th:value="${user.getId}"> option
+            <label for="id">What Kind of user are you:</label>
+            <select class="form-control" id="id" name="id" >
+                <option th:each="user : ${users}" th:text="${user.getUserName}"
+                        th:value="${user.getId}">
                 </option>
             </select>
 
-            <div class="row" style="margin-top: 2%">
-                <div class="col-md-4 offset-md-4">
-                    <button id="submitbnt" type="submit" class="form-control btn btn-primary">Submit
+            <label for="password">Please enter password:</label>
+            <input  type="password" class="form-control" id="password" name="password">
+            <div >
+
+                    <button id="submitbnt-customer" type="submit" class="form-control btn btn-primary">Submit
                     </button>
-                </div>
             </div>
+
         </div>
     </form>
 </div>
+
+<div  id="new-customer">
+    <a th:href="@{addCustomer}" class="btn btn-primary">New customer</a>
 </div>
-</div>
-</div>
+
+<!--<div  id="new-customer">-->
+<!--    <a th:href="@{addCustomer}" class="btn btn-primary">New customer</a>-->
+<!--</div>-->
 
 
 <!--<div class="login-box">-->
@@ -49,10 +56,10 @@
 <!--            <span></span>-->
 <!--            <span></span>-->
 <!--            <span></span>-->
-<!--            Submit-->
+<!--            Login-->
 <!--        </a>-->
 <!--    </form>-->
 <!--</div>-->
-
+<div th:insert="fragments/head :: footer"></div>
 </body>
 </html>

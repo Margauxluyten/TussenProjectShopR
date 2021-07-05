@@ -31,7 +31,8 @@
            data-search="true"
            data-show-toggle="true"
            data-pagination="true"
-           data-reorderable-columns="true" >
+           data-reorderable-columns="true"
+           data-buttons-class="primary">
         <thead>
         <tr>
             <th data-field="id" data-sortable="true">Id</th>
@@ -93,6 +94,8 @@
     </table>
 
 </div>
+
+<div th:insert="fragments/head :: footer"></div>
 </body>
 
 <script>

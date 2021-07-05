@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -17,5 +18,9 @@ public class UserRepository {
     public List<User> getUsers() {
         TypedQuery<User> users = entityManager.createQuery("select u from User  u", User.class);
         return users.getResultList();
+    }
+    @Transactional(rollbackOn = Exception.class)
+    public void saveUser(User newUser) {
+        entityManager.persist(newUser);
     }
 }

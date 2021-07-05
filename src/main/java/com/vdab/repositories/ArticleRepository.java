@@ -15,7 +15,11 @@ public class ArticleRepository {
     private EntityManager entityManager;
 
 
-//    public List<Article> getAllArticles() {
-//        TypedQuery<Article>articles =entityManager.createQuery("select a from Article")
-//    }
+    public List<Article> getAllArticles() {
+        List<Article>articles =entityManager.createQuery("select g from Game g",Article.class).getResultList();
+        articles.addAll(entityManager.createQuery("select l from Lp l",Article.class).getResultList());
+        articles.addAll(entityManager.createQuery("select b from Book b",Article.class).getResultList());
+        return articles;
+
+    }
 }

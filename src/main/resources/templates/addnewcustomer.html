@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+
+</head>
+<div th:insert="fragments/head :: navhome"></div>
+
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="description">
+
+      </div>
+      <div class="user-container">
+        <form th:action="@{/saveCustomer}" method="post" th:object="${newUser}">
+          <div class="row">
+
+            <label for="userName" class="form-label">User Name</label>
+            <input id="userName" class="form-control" placeholder="User Name" name="userName" required>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+
+            <div class="row" style="margin-top: 2%">
+              <div class="col-md-4 offset-md-4">
+                <button id="submitbnt" type="submit" class="form-control btn btn-primary">Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:insert="fragments/head :: footer"></div>
+
+</body>
+</html>

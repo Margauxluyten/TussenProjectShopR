@@ -26,7 +26,8 @@
            data-search="true"
            data-show-toggle="true"
            data-pagination="true"
-           data-reorderable-columns="true" >
+           data-reorderable-columns="true"
+           data-buttons-class="primary">
         <thead>
         <tr>
             <th data-field="id" data-sortable="true">Id</th>
@@ -54,7 +55,7 @@
                 <a th:href="@{editLp/{id}(id=${lp.getId()})}"><span class="material-icons">edit</span></a>
             </td>
             <td>
-                <a th:href="@{deleteLp/{id}(id=${lp.getId()})}"><span class="material-icons">delete</span></a>
+                <a onclick="ConfirmDelete()" th:href="@{deleteLp/{id}(id=${lp.getId()})}" ><span class="material-icons">delete</span></a>
             </td>
         </tr>
 
@@ -62,7 +63,7 @@
     </table>
 
 </div>
-
+<div th:insert="fragments/head :: footer"></div>
 </body>
 
 <script>
@@ -86,5 +87,17 @@
         })
     })
 </script>
+
+<script>
+    function ConfirmDelete() {
+        var result = confirm("Want to delete?");
+        if (result==true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
 
 </html>
