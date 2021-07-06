@@ -22,6 +22,10 @@
             <label for="title" class="form-label">Title</label>
             <input th:value="${editItem.getTitle()}" class="form-control" id="title" placeholder="Title" name="title" required>
 
+            <label for="price" class="form-label">Price</label>
+            <input type="text" readonly th:value="${editItem.getPrice()}" id="price" class="form-control" placeholder="Price" name="price" required>
+
+
             <div id="myDiv">
               <div class="quantity-container">
                 <span>Quantity</span>

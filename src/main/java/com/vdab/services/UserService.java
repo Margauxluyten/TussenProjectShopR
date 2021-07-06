@@ -21,4 +21,8 @@ public class UserService {
     public void saveUser(User newUser) {
         userRepository.saveUser(newUser);
     }
+
+    public User checkPassword(User user){
+       return userRepository.checkPassword(user);
+    }
 }

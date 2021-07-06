@@ -7,7 +7,7 @@ INSERT INTO `shopr`.`lp` (`id`, `price`, `supplier_id`, `title`, `artist`, `lp_g
 INSERT INTO `shopr`.`lp` (`id`, `price`, `supplier_id`, `title`, `artist`, `lp_genre`) VALUES ('2', '12.99', '5', 'Sure Thing', 'Miquel', 'RHYTHMANDBLUES');
 INSERT INTO `shopr`.`lp` (`id`, `price`, `supplier_id`, `title`, `artist`, `lp_genre`) VALUES ('3', '15.20', '5', 'Losing it ', 'Fisher', 'DANCE');
 INSERT INTO `shopr`.`lp` (`id`, `price`, `supplier_id`, `title`, `artist`, `lp_genre`) VALUES ('4', '22.50', '19', 'Aaron', 'Paul  Kalkbrenner', 'DANCE');
-INSERT INTO `shopr`.`lp` (`id`, `price`, `supplier_id`, `title`, `artist`, `lp_genre`) VALUES ('5', '12.99', '9', 'Till it\'s gone', 'Yelawolf', 'ROCK');
+INSERT INTO `shopr`.`lp` (`id`, `price`, `supplier_id`, `title`, `artist`, `lp_genre`) VALUES ('5', '12.99', '9', 'Till its gone', 'Yelawolf', 'ROCK');
 INSERT INTO `shopr`.`game` (`id`, `price`, `supplier_id`, `title`, `game_genre`, `minimum_age`, `publisher`) VALUES ('1', '59.99', '3', 'World of Warcraft','MMORPG','12', 'Blizzard Entertainment');
 INSERT INTO `shopr`.`game` (`id`, `price`, `supplier_id`, `title`, `game_genre`, `minimum_age`, `publisher`) VALUES ('2', '69.99', '19', 'Resident evil village', 'FPS','18','Capcom');
 INSERT INTO `shopr`.`game` (`id`, `price`, `supplier_id`, `title`, `game_genre`, `minimum_age`, `publisher`) VALUES ('3', '59.99', '4', 'Call of Duty: Black ops', 'FPS', '18', 'Activision');

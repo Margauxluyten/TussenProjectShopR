@@ -16,9 +16,14 @@ public class UserRepository {
     private EntityManager entityManager;
 
     public List<User> getUsers() {
-        TypedQuery<User> users = entityManager.createQuery("select u from User  u", User.class);
-        return users.getResultList();
+        TypedQuery<User> users = entityManager.createQuery("select u from User u", User.class); return users.getResultList(); }
+
+    public User checkPassword(User user){
+        return entityManager.createQuery("select u from User u where u.password = :password", User.class)
+                .setParameter("password", user.getPassword())
+                .getSingleResult();
     }
+
     @Transactional(rollbackOn = Exception.class)
     public void saveUser(User newUser) {
         entityManager.persist(newUser);

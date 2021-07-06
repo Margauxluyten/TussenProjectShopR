@@ -36,17 +36,20 @@ public class ActionController {
 
     @PostMapping(value = "/checklogin")
     public String showLoginPage(@ModelAttribute User user, Model model){
+        User userPassword = userService.checkPassword(user);
         if(user.getId() == 1 ){
             model.addAttribute("allGames",gameService.getGames());
             model.addAttribute("allBooks",bookService.getBooks());
             model.addAttribute("allLps",lpService.getLps());
             model.addAttribute("user", user);
+            model.addAttribute("userPassword", userPassword);
             return "articles";
         }else{
             model.addAttribute("allGames",gameService.getGames());
             model.addAttribute("allBooks",bookService.getBooks());
             model.addAttribute("allLps",lpService.getLps());
             model.addAttribute("user", user);
+            model.addAttribute("userPassword", userPassword);
             return "articlesclient";
         }
     }

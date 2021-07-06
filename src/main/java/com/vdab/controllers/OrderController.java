@@ -90,7 +90,7 @@ public class OrderController {
     @PostMapping(value ="/editedShoppingItem/{id}")
     public String editedShoppingItem(@ModelAttribute OrderArticle orderArticle){
         orderService.updateShoppingItem(orderArticle);
-        return "redirect:/articlesclient";
+        return "redirect:/shoppingCart";
     }
 
     @GetMapping(value = "/deleteItem/{id}")
