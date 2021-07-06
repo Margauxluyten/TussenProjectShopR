@@ -38,4 +38,9 @@ public class OrderRepository {
     public void updateShoppingItem(OrderArticle orderArticle) {
         entityManager.merge(orderArticle);
     }
+
+    @Transactional
+    public void deleteQueryDb() {
+        entityManager.createQuery("DELETE FROM OrderArticle oa").executeUpdate();
+    }
 }

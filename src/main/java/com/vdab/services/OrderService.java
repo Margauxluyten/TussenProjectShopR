@@ -32,6 +32,10 @@ public class OrderService {
     public void updateShoppingItem(OrderArticle orderArticle) {
         orderRepository.updateShoppingItem(orderArticle);
     }
+
+    public void deleteQueryDb() {
+       orderRepository.deleteQueryDb();
+    }
 }
 
 

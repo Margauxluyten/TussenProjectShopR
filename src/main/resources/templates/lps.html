@@ -55,7 +55,7 @@
                 <a th:href="@{editLp/{id}(id=${lp.getId()})}"><span class="material-icons">edit</span></a>
             </td>
             <td>
-                <a onclick="ConfirmDelete()" th:href="@{deleteLp/{id}(id=${lp.getId()})}" ><span class="material-icons">delete</span></a>
+                <a onclick="myFunction()" th:href="@{deleteLp/{id}(id=${lp.getId()})}" ><span class="material-icons">delete</span></a>
             </td>
         </tr>
 
@@ -63,6 +63,19 @@
     </table>
 
 </div>
+
+
+
+
+
+<div class='record-container'>
+    <img src='https://dribbble.s3.amazonaws.com/users/2009/screenshots/94101/shot_1293655299.png' />
+</div>
+<div class='record-container'>
+    <div class='record'></div>
+</div>
+
+
 <div th:insert="fragments/head :: footer"></div>
 </body>
 
@@ -89,13 +102,8 @@
 </script>
 
 <script>
-    function ConfirmDelete() {
-        var result = confirm("Want to delete?");
-        if (result==true) {
-            return true;
-        } else {
-            return false;
-        }
+    function myFunction() {
+        alert("Delete is permanently!");
     }
 </script>
 

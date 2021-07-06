@@ -31,6 +31,7 @@ public class OrderController {
 
     @GetMapping(value = "/buyArticle")
     public String showBoughtCartPage(){
+        orderService.deleteQueryDb();
         return "buyarticle";
     }
 

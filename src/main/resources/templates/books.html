@@ -85,7 +85,7 @@
                 <a th:href="@{editFictionBook/{id}(id=${book.getId()})}"><span class="material-icons">edit</span></a>
             </td>
             <td>
-                <a th:href="@{deleteFictionBook/{id}(id=${book.getId()})}"><span class="material-icons">delete</span></a>
+                <a th:href="@{deleteFictionBook/{id}(id=${book.getId()})}" onclick="myFunction()"><span class="material-icons">delete</span></a>
             </td>
 <!--            <td>-->
 <!--                <a th:href="@{addFictionBook}"><span class="material-icons">add</span></a>-->
@@ -94,6 +94,8 @@
     </table>
 
 </div>
+
+<img src="https://i.pinimg.com/474x/d4/d3/c0/d4d3c02f855019b7357b6c46da2124da.jpg">
 
 <div th:insert="fragments/head :: footer"></div>
 </body>
@@ -118,6 +120,12 @@
             })
         })
     })
+</script>
+
+<script>
+    function myFunction() {
+        alert("Delete is permanently!");
+    }
 </script>
 
 </html>

@@ -34,7 +34,7 @@
           <a th:href="@{editShoppingItem/{id}(id=${newOrder.getId()})}"><span class="material-icons">edit</span></a>
         </td>
         <td>
-          <a th:href="@{deleteItem/{id}(id=${newOrder.getId()})}"><span class="material-icons">delete</span></a>
+          <a th:href="@{deleteItem/{id}(id=${newOrder.getId()})}"  onclick="myFunction()" ><span class="material-icons">delete</span></a>
         </td>
       </tr>
 <!--      <tr th:each="newOrderArticleGame : ${allOrderedArticles}">-->
@@ -63,6 +63,12 @@
 <div th:insert="fragments/head :: footer"></div>
 
 </body>
+
+<script>
+  function myFunction() {
+    alert("Delete is permanently!");
+  }
+</script>
 
 
 </html>
